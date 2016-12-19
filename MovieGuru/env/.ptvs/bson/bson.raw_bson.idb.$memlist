@@ -1,0 +1,9 @@
+_iterate_elements
+CodecOptions
+iteritems
+collections
+InvalidBSON
+RawBSONDocument
+_RAW_BSON_DOCUMENT_MARKER
+DEFAULT_CODEC_OPTIONS
+_UNPACK_INT

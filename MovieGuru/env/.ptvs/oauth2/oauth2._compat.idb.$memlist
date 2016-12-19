@@ -1,0 +1,15 @@
+urlencode
+parse_qs
+u
+PY3
+unquote_to_bytes
+b
+parse_qsl
+urlunsplit
+urlparse
+STRING_TYPES
+unquote
+quote
+urlsplit
+TEXT
+urlunparse

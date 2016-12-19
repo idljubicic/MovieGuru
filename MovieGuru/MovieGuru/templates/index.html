@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<br />
+<div id="owl-demo">
+    {% autoescape false %}
+    {{ posters }}
+    {% endautoescape %}
+</div>
+
+<style>
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+</style>
+
+{% endblock %}
+
+
+
+<!--{% block scripts %}
+
+<script src="/static/scripts/owl.carousel.demo.js"></script>
+
+{% endblock %}-->
+    

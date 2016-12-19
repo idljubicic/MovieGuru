@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ff3ca066-ea0d-4b50-818b-d98a906f9f57</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>runserver.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Web launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+    <StaticUriPattern>^/static/.*</StaticUriPattern>
+    <StaticUriRewrite>^/$(MSBuildProjectName)/static/.*</StaticUriRewrite>
+    <PythonWsgiHandler>$(MSBuildProjectName).app</PythonWsgiHandler>
+    <Name>MovieGuru</Name>
+    <RootNamespace>MovieGuru</RootNamespace>
+    <InterpreterId>{8cf448db-e779-473d-b037-e2915f32d538}</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+    <WebBrowserPort>5555</WebBrowserPort>
+    <Environment>
+    </Environment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MovieGuru\dbutils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MovieGuru\fbutils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="runserver.py" />
+    <Compile Include="MovieGuru\__init__.py" />
+    <Compile Include="MovieGuru\views.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MovieGuru\" />
+    <Folder Include="MovieGuru\static\" />
+    <Folder Include="MovieGuru\static\content\" />
+    <Folder Include="MovieGuru\static\fonts\" />
+    <Folder Include="MovieGuru\static\scripts\" />
+    <Folder Include="MovieGuru\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MovieGuru\static\content\owl.carousel.css" />
+    <Content Include="MovieGuru\static\content\owl.theme.css" />
+    <Content Include="MovieGuru\static\content\owl.transitions.css" />
+    <Content Include="MovieGuru\static\scripts\owl.carousel.demo.js" />
+    <Content Include="MovieGuru\static\scripts\owl.carousel.js" />
+    <Content Include="requirements.txt" />
+    <Content Include="MovieGuru\static\content\bootstrap.css" />
+    <Content Include="MovieGuru\static\content\bootstrap.min.css" />
+    <Content Include="MovieGuru\static\content\site.css" />
+    <Content Include="MovieGuru\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="MovieGuru\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="MovieGuru\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="MovieGuru\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="MovieGuru\static\scripts\bootstrap.js" />
+    <Content Include="MovieGuru\static\scripts\bootstrap.min.js" />
+    <Content Include="MovieGuru\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="MovieGuru\static\scripts\jquery-1.10.2.js" />
+    <Content Include="MovieGuru\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="MovieGuru\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="MovieGuru\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="MovieGuru\static\scripts\jquery.validate.js" />
+    <Content Include="MovieGuru\static\scripts\jquery.validate.min.js" />
+    <Content Include="MovieGuru\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="MovieGuru\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="MovieGuru\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="MovieGuru\static\scripts\respond.js" />
+    <Content Include="MovieGuru\static\scripts\respond.min.js" />
+    <Content Include="MovieGuru\static\scripts\_references.js" />
+    <Content Include="MovieGuru\templates\index.html" />
+    <Content Include="MovieGuru\templates\layout.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>{8cf448db-e779-473d-b037-e2915f32d538}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <Version>2.7</Version>
+      <Description>env (Python 2.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
