@@ -1,0 +1,28 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<br />
+<div style="float:left;margin-right:20px">
+    <img src="{{ poster_path }}" />
+</div>
+
+<div stlye="float:right">
+    <ul>
+        <li>Title: {{ movie['title']}}</li>
+        <li>Original language: {{ movie['original_language'] }}</li>
+        <li>Tagline: {{ movie['tagline'] }}</li>
+        <li>Tmdb vote average: {{ movie['tmdb_vote_average'] }} </li>
+        <li>Runtime: {{ movie['runtime'] }} </li>
+        <li>Revenue: {{ movie['revenue'] }} </li>
+        <li>Overview: {{ movie['overview'] }}</li>
+    </ul>
+</div>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+{% endblock %}
