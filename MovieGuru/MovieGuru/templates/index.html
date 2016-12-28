@@ -24,9 +24,14 @@
 
 
 
-<!--{% block scripts %}
+{% block scripts %}
 
-<script src="/static/scripts/owl.carousel.demo.js"></script>
+<script>
+    // Custom click event: detail view
+    function detailView(id) {
+        window.open(id, "_self")
+    }
+</script>
 
-{% endblock %}-->
+{% endblock %}
     
