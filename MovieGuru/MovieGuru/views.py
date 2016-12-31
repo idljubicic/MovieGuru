@@ -9,7 +9,7 @@ from flask_oauth import OAuth
 from pymongo import MongoClient
 from fbutils import *
 from dbutils import *
-
+from operator import itemgetter
 
 #----------------------------------------
 # facebook authentication
@@ -28,7 +28,7 @@ facebook = oauth.remote_app('facebook',
     authorize_url='https://www.facebook.com/dialog/oauth',
     consumer_key=FACEBOOK_APP_ID,
     consumer_secret=FACEBOOK_APP_SECRET,
-    request_token_params={'scope': ('email, user_likes')}
+    request_token_params={'scope': ('public_profile', 'email, user_likes')}
 )
 
 @facebook.tokengetter
@@ -73,20 +73,21 @@ def home():
     # find trending movies
     trending_movies = find_trending_movies(coll) 
     
-    posters_string = ur''
-    for movie in trending_movies:
-        posters_string += '<div class="item"><img onclick="detailView(this.id)" id="' + str(movie['imdb_id']) + '" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path']) + '" alt="' + str(movie['title']) + '"></div>'        
+    #posters_string = ur''
+    #for movie in trending_movies:
+    #    posters_string += '<div class="item"><img onclick="detailView(this.id)" id="' + str(movie['imdb_id']) + '" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path']) + '" alt="' + str(movie['title']) + '"></div>'        
 
     # gets the movie data from facebook for active user
     if session.get('logged_in') == True:
-        user_id, user_name = get_user_data(facebook)
+        user_id = get_user_id(facebook)
         movies = get_user_movie_data(session['facebook_token'][0])           
+        save_user_liked_movies(user_id, movies, db.get_collection('tmdb'), db.get_collection('fb_data')) # save liked movie data for each new user
         
     return render_template(
         'index.html',
         title='Home Page',
         year=datetime.now().year,
-        posters=posters_string
+        movies=trending_movies
     )
 
 @app.route('/<string:imdb_id>')
@@ -100,3 +101,38 @@ def get_movie(imdb_id):
     poster_path = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path'])
 
     return render_template('detail.html', poster_path = poster_path, movie = movie, year=datetime.now().year)
+
+@app.route('/recommend')
+def recommend():
+    """Redners the movie recommendations for active user."""
+    
+
+
+    return render_template(
+        'index.html',
+        title='Recommendation Page',
+        year=datetime.now().year,
+    )
+
+@app.route('/profile')
+def profile():
+    """Redners the user profile data."""
+    if session.get('logged_in') == True:
+        user_id = get_user_id(facebook)
+        user_data = get_user_data(facebook)
+
+        client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
+        db = client.get_database('drumre_projekt')
+        coll = db.get_collection('fb_data')
+        movies = get_saved_movie_data(user_id, coll)
+        genres = get_user_favourite_genres(user_id, coll)
+        bla = True
+    return render_template(
+        'profile.html',
+        title='Profile Page',
+        user_data = user_data,
+        movies = movies,
+        genres = genres,
+        itemgetter = itemgetter,
+        year=datetime.now().year,
+    )

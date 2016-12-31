@@ -1,0 +1,50 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<img src="{{ user_data['picture']['data']['url'] }}" />
+<ul>
+    <li>Full name: {{ user_data['name']}}</li>
+    <li>Gender: {{ user_data['gender'] }}</li>
+</ul>
+Favourite genres:
+<ul>
+    {% for genre in genres %}
+    <li>{{ genre[0] }} : {{ genre[1] }}</li> 
+    {% endfor %}
+</ul>
+
+Favourite movies:
+
+<div id="owl-demo">
+    {% for movie in movies %}
+    <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + movie['tmdb_poster_path'] }}" alt="{{ movie['title'] }}"></div>
+    {% endfor %}
+</div>
+
+<style>
+    #owl-demo .item {
+        margin: 3px;
+    }
+
+        #owl-demo .item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+</style>
+
+{% endblock %}
+
+
+
+{% block scripts %}
+
+<script>
+    // Custom click event: detail view
+    function detailView(id) {
+        window.open(id, "_self")
+    }
+</script>
+
+{% endblock %}

@@ -58,6 +58,7 @@
     <Content Include="MovieGuru\static\scripts\owl.carousel.demo.js" />
     <Content Include="MovieGuru\static\scripts\owl.carousel.js" />
     <Content Include="MovieGuru\templates\detail.html" />
+    <Content Include="MovieGuru\templates\profile.html" />
     <Content Include="requirements.txt" />
     <Content Include="MovieGuru\static\content\bootstrap.css" />
     <Content Include="MovieGuru\static\content\bootstrap.min.css" />

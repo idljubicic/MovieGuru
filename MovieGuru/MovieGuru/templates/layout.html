@@ -30,15 +30,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('home') }}">Trending</a></li>
+                    {% if session.logged_in %}
+                    <li><a href="{{ url_for('recommend') }}">Recommendations</a></li>
+                    {% endif %}
                 </ul>
                 <ul class="nav navbar-nav" style="float:right">
-                    <li>
                         {% if not session.logged_in %}
-                        <a href="{{ url_for('facebook_login') }}">Login</a>
+                        <li><a href="{{ url_for('facebook_login') }}">Login</a></li>
                         {% else %}
-                        <a href="{{ url_for('logout') }}">Logout</a>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
                         {% endif %}
-                    </li>
                 </ul>
             </div>
         </div>

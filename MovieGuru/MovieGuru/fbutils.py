@@ -1,12 +1,16 @@
 import facebook as fb
 
-# returns active user data
-def get_user_data(fb):
+# returns active user id
+def get_user_id(fb):
     data = fb.get('/me').data
     if 'id' in data and 'name' in data:
         user_id = data['id']
-        user_name = data['name']
-    return (user_id,user_name)
+    return user_id
+
+# returns active user data
+def get_user_data(fb):
+    user_data = fb.get('/me?fields=name,gender,picture').data
+    return user_data
 
 # returns liked movie data from active user
 def get_user_movie_data(fb_token):
