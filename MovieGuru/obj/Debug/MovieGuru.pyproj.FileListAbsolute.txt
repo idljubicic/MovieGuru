@@ -13,3 +13,18 @@ C:\Users\User\documents\visual studio 2015\Projects\MovieGuru\MovieGuru\obj\Debu
 C:\Users\User\documents\visual studio 2015\Projects\MovieGuru\MovieGuru\ptvs_virtualenv_proxy.py
 C:\Users\User\documents\visual studio 2015\Projects\MovieGuru\MovieGuru\obj\Debug\web.config
 C:\Users\User\documents\visual studio 2015\Projects\MovieGuru\MovieGuru\obj\Debug\web.debug.config
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\bin\Microsoft.PythonTools.WebRole.dll
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\attach_server.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\visualstudio_py_debugger.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\visualstudio_py_repl.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\visualstudio_py_util.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\__init__.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\__main__.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\bin\AzureSetup.cfg
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\bin\wfastcgi.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\deployment-updated-orig-prefix.txt
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\ptvs_virtualenv_proxy.py
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\web.config
+C:\Users\Hora\Documents\MovieGuru\MovieGuru\obj\Debug\web.debug.config

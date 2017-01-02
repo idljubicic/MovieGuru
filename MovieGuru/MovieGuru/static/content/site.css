@@ -1,12 +1,18 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 20px;
+    background-image: url("../pictures/background.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #030507;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #8297ad;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -40,4 +46,3 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-

@@ -36,10 +36,12 @@
                 </ul>
                 <ul class="nav navbar-nav" style="float:right">
                         {% if not session.logged_in %}
-                        <li><a href="{{ url_for('facebook_login') }}">Login</a></li>
+                        <li><a href="{{ url_for('facebook_login') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-login-blue.png" width="200" height="50">
+                            </a></li>
                         {% else %}
-                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        <li><a href="{{ url_for('profile') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-profile.png" width="50" height="50"></a></li>
+                        <li><a href="{{ url_for('logout') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-logout-blue.png" width="200" height="50">
+                            </a></li>
                         {% endif %}
                 </ul>
             </div>
