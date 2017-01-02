@@ -5,7 +5,7 @@ from operator import itemgetter
 
 # finds and returns current trending movies
 def find_trending_movies(coll):
-    regex_string = str(date.today().year) + "-*-*"
+    regex_string = "(" + str(date.today().year) + "|" + str(date.today().year - 1) + ")" + "-*-*"
     regex = re.compile(regex_string)
     trending_movies = coll.find({ "release_date" : regex }).sort("revenue", pymongo.DESCENDING).limit(20)
     return trending_movies

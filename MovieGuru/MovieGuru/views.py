@@ -72,11 +72,7 @@ def home():
     
     # find trending movies
     trending_movies = find_trending_movies(coll) 
-    
-    #posters_string = ur''
-    #for movie in trending_movies:
-    #    posters_string += '<div class="item"><img onclick="detailView(this.id)" id="' + str(movie['imdb_id']) + '" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path']) + '" alt="' + str(movie['title']) + '"></div>'        
-
+   
     # gets the movie data from facebook for active user
     if session.get('logged_in') == True:
         user_id = get_user_id(facebook)
@@ -87,10 +83,10 @@ def home():
         'index.html',
         title='Home Page',
         year=datetime.now().year,
-        movies=trending_movies
+        trending_movies=trending_movies
     )
 
-@app.route('/<string:imdb_id>')
+@app.route('/movie/<string:imdb_id>')
 def get_movie(imdb_id):
     """Renders the specific movie detail view."""
     client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
