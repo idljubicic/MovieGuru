@@ -29,9 +29,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">Trending</a></li>
+                    <li class="klasa"><a href="{{ url_for('home') }}">Trending</a></li>
                     {% if session.logged_in %}
-                    <li><a href="{{ url_for('recommend') }}">Recommendations</a></li>
+                    <li class="klasa"><a href="{{ url_for('recommend') }}">Recommendations</a></li>
                     {% endif %}
                 </ul>
                 <ul class="nav navbar-nav" style="float:right">
