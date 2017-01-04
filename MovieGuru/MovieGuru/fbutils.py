@@ -9,8 +9,15 @@ def get_user_id(fb):
 
 # returns active user data
 def get_user_data(fb):
-    user_data = fb.get('/me?fields=name,gender,picture').data
+    user_data = fb.get('/me?fields=name,gender,cover').data
     return user_data
+
+def get_user_profile_picture(fb, session):
+    if session.get('logged_in') == True:
+        profile_picture = fb.get('/me?fields=picture').data
+        return profile_picture['picture']['data']['url']
+    else:
+        return None
 
 # returns liked movie data from active user
 def get_user_movie_data(fb_token):

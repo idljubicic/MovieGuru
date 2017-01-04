@@ -10,6 +10,8 @@ from pymongo import MongoClient
 from fbutils import *
 from dbutils import *
 from operator import itemgetter
+import json
+import os
 
 #----------------------------------------
 # facebook authentication
@@ -82,6 +84,7 @@ def home():
     return render_template(
         'index.html',
         title='Home Page',
+        profile_picture = get_user_profile_picture(facebook, session),
         year=datetime.now().year,
         trending_movies=trending_movies
     )
@@ -96,17 +99,22 @@ def get_movie(imdb_id):
     movie = get_movie_by_imdb_id(coll, imdb_id)
     poster_path = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path'])
 
-    return render_template('detail.html', poster_path = poster_path, movie = movie, year=datetime.now().year)
+    return render_template(
+        'detail.html', 
+        profile_picture = get_user_profile_picture(facebook, session),
+        poster_path = poster_path,
+        movie = movie, 
+        year=datetime.now().year
+    )
 
 @app.route('/recommend')
 def recommend():
     """Redners the movie recommendations for active user."""
     
-
-
     return render_template(
         'index.html',
         title='Recommendation Page',
+        profile_picture = get_user_profile_picture(facebook, session),
         year=datetime.now().year,
     )
 
@@ -122,13 +130,27 @@ def profile():
         coll = db.get_collection('fb_data')
         movies = get_saved_movie_data(user_id, coll)
         genres = get_user_favourite_genres(user_id, coll)
-        bla = True
+
+        genres_json = [{ 'name' : genre[0], 'y' : genre[1]} for genre in genres]
+        with open(os.path.dirname(os.path.realpath(__file__)) + '/templates/genres.json', 'w') as outfile:
+            json.dump(genres_json, outfile)
+        flag = True
+
     return render_template(
         'profile.html',
         title='Profile Page',
+        profile_picture = get_user_profile_picture(facebook, session),
         user_data = user_data,
         movies = movies,
         genres = genres,
         itemgetter = itemgetter,
         year=datetime.now().year,
+    )
+
+@app.route('/genres')
+def genres():
+    """Redners the favourite genres for active user as JSON file."""
+    
+    return render_template(
+        'genres.json',
     )

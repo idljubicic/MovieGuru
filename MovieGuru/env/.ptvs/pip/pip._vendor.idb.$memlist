@@ -1,7 +1,7 @@
 retrying
 colorama
 requests
-html5lib
+progress
 pkg_resources
 cachecontrol
 VendorAlias
@@ -9,8 +9,8 @@ ipaddress
 six
 distlib
 absolute_import
-progress
 glob
+html5lib
 _markerlib
 os
 lockfile

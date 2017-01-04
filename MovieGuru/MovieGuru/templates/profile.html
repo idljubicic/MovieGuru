@@ -2,37 +2,40 @@
 
 {% block content %}
 
-<!-- <img src="{{ user_data['picture']['data']['url'] }}" /> -->
-<ul>
-    <li>Full name: {{ user_data['name']}}</li>
-    <li>Gender: {{ user_data['gender'] }}</li>
-</ul>
-Favourite genres:
-<ul>
-    {% for genre in genres %}
-    <li>{{ genre[0] }} : {{ genre[1] }}</li> 
-    {% endfor %}
-</ul>
-
-Favourite movies:
-
-<div id="owl-demo">
-    {% for movie in movies %}
-    <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + movie['tmdb_poster_path'] }}" alt="{{ movie['title'] }}"></div>
-    {% endfor %}
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div style="float:left; width: 40%;">
+    <div class="container" style="margin-top:13%; margin-left:30%;">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6" style="width:inherit">
+                <div class="card hovercard">
+                    <div class="cardheader" style="background: url('{{ user_data['cover']['source'] }}')">
+                    </div>
+                    <div class="avatar">
+                        <img alt="" src="{{ profile_picture }}">
+                    </div>
+                    <div class="info">
+                        <div class="title" style="color: white">
+                            {{ user_data['name']}}
+                        </div>
+                        <div class="desc">Random text</div>
+                        <div class="desc">Random text</div>
+                        <div class="desc">Random text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<style>
-    #owl-demo .item {
-        margin: 3px;
-    }
+<div id="container" style="float:right; width: 100%; min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto; margin-right: 6%; margin-top: 2%"></div>
 
-        #owl-demo .item img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-</style>
+<div style="margin-top: 40%; display: block">
+    <div id="owl-demo">
+        {% for movie in movies %}
+        <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + movie['tmdb_poster_path'] }}" alt="{{ movie['title'] }}"></div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
 
@@ -40,11 +43,9 @@ Favourite movies:
 
 {% block scripts %}
 
-<script>
-    // Custom click event: detail view
-    function detailView(id) {
-        window.open(id, "_self")
-    }
-</script>
+<script src="/static/scripts/detail-view.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="/static/scripts/highchart.js"></script>
 
 {% endblock %}

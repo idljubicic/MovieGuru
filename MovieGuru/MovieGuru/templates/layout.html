@@ -6,6 +6,7 @@
     <title>{{ title }} - My Flask Application</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/card.css" />
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>
     <script src="/static/scripts/respond.js"></script>
@@ -39,7 +40,7 @@
                         <li><a href="{{ url_for('facebook_login') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-login-blue.png" width="200" height="50">
                             </a></li>
                         {% else %}
-                        <li><a href="{{ url_for('profile') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-profile.png" width="50" height="50"></a></li>
+                        <li><a href="{{ url_for('profile') }}"><img border="0" alt="Facebook" src="{{ profile_picture }}" width="50" height="50"></a></li>
                         <li><a href="{{ url_for('logout') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-logout-blue.png" width="200" height="50">
                             </a></li>
                         {% endif %}
@@ -62,21 +63,7 @@
 
 
     {% block scripts %}{% endblock %}
-    <script>
-        $(document).ready(function () {
-
-            $("#owl-demo").owlCarousel({
-
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-
-                items: 4,
-                itemsDesktop: [1199, 3],
-                itemsDesktopSmall: [979, 3]
-
-            });
-
-        });
-    </script>
+    <script src="/static/scripts/owl.carousel.load.js"></script>
 
 </body>
 </html>

@@ -52,11 +52,23 @@
     <Folder Include="MovieGuru\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MovieGuru\static\content\card.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="MovieGuru\static\content\owl.carousel.css" />
     <Content Include="MovieGuru\static\content\owl.theme.css" />
     <Content Include="MovieGuru\static\content\owl.transitions.css" />
+    <Content Include="MovieGuru\static\scripts\detail-view.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MovieGuru\static\scripts\highchart.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="MovieGuru\static\scripts\owl.carousel.demo.js" />
     <Content Include="MovieGuru\static\scripts\owl.carousel.js" />
+    <Content Include="MovieGuru\static\scripts\owl.carousel.load.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="MovieGuru\templates\detail.html" />
     <Content Include="MovieGuru\templates\profile.html" />
     <Content Include="requirements.txt" />

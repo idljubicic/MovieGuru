@@ -2,41 +2,36 @@
 
 {% block content %}
 
-<br />
+<br /><br /><br />
+<div id="owl-demo">
+    {% for movie in trending_movies %}
+    <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + movie['tmdb_poster_path'] }}" alt="{{ movie['title'] }}"></div>
+    {% endfor %}
+</div>
 
 <div style="text-align: center">
     <img border="0" alt="MovieGuru" align="middle" src="/static/pictures/movie-guru2.png" width="250" height="250">
 </div>
-    <div id="owl-demo">
-        {% for movie in trending_movies %}
-        <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ "https://image.tmdb.org/t/p/w300_and_h450_bestv2" + movie['tmdb_poster_path'] }}" alt="{{ movie['title'] }}"></div>
-        {% endfor %}
-    </div>
 
-    <style>
-        #owl-demo .item {
-            margin: 3px;
+<style>
+    #owl-demo .item {
+        margin: 3px;
+    }
+
+        #owl-demo .item img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
-
-            #owl-demo .item img {
-                display: block;
-                width: 100%;
-                height: auto;
-            }
-    </style>
+</style>
 
 
-    {% endblock %}
+{% endblock %}
 
 
 
-    {% block scripts %}
+{% block scripts %}
 
-    <script>
-        // Custom click event: detail view
-        function detailView(id) {
-            window.open('movie/' + id, "_self")
-        }
-    </script>
+<script src="/static/scripts/detail-view.js"></script>
 
-    {% endblock %}
+{% endblock %}
