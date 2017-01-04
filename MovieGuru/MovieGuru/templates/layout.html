@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Application</title>
+    <title>Movie Guru</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/card.css" />
@@ -30,7 +30,6 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="klasa"><a href="{{ url_for('home') }}">Trending</a></li>
                     {% if session.logged_in %}
                     <li class="klasa"><a href="{{ url_for('recommend') }}">Recommendations</a></li>
                     {% endif %}

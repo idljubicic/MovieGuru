@@ -65,7 +65,6 @@ def logout():
 
 @app.route('/')
 @app.route('/home')
-@app.route('/trending')
 def home():
     """Renders the home page."""
     client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
@@ -83,7 +82,6 @@ def home():
         
     return render_template(
         'index.html',
-        title='Home Page',
         profile_picture = get_user_profile_picture(facebook, session),
         year=datetime.now().year,
         trending_movies=trending_movies
@@ -138,7 +136,6 @@ def profile():
 
     return render_template(
         'profile.html',
-        title='Profile Page',
         profile_picture = get_user_profile_picture(facebook, session),
         user_data = user_data,
         movies = movies,

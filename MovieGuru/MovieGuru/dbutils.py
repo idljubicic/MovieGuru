@@ -25,7 +25,7 @@ def save_user_liked_movies(user_id, movies, coll_tmdb, coll_fb_data):
     
     # data for user already exists
     if(coll_fb_data.find_one({ "user_id" : user_id }) != None):
-        return     
+        coll_fb_data.remove({ "user_id" : user_id})    
 
 
     liked_movies = list()

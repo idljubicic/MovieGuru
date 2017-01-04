@@ -53,6 +53,9 @@ $(function () {
                 itemHoverStyle: {
                     color: 'blue'
                 },
+            },
+            credits: {
+                enabled: false
             }
         });
     });
