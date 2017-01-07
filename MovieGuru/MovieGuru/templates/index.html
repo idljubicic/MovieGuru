@@ -3,9 +3,10 @@
 {% block content %}
 
 <br /><br /><br />
+<div class="recommend_text"><p>Movies trending now:<br /></p></div>
 <div id="owl-demo">
     {% for movie in trending_movies %}
-    <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+    <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
     {% endfor %}
 </div>
 
@@ -14,15 +15,24 @@
 </div>
 
 <style>
-    #owl-demo .item {
-        margin: 3px;
-    }
+#owl-demo .item {
+    margin: 3px;
+}
 
-        #owl-demo .item img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.movie { 
+    cursor: pointer; 
+}
+
+.recommend_text {
+    font-family: "League Gothic";
+    font-size: xx-large;
+    color: #B9090B;
+}
 </style>
 
 

@@ -1,4 +1,4 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from datetime import datetime
 from flask import render_template
 from MovieGuru import app
@@ -95,12 +95,10 @@ def get_movie(imdb_id):
     coll = db.get_collection('dontTouch')
         
     movie = get_movie_by_imdb_id(coll, imdb_id)
-    poster_path = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path'])
 
     return render_template(
         'detail.html', 
         profile_picture = get_user_profile_picture(facebook, session),
-        poster_path = poster_path,
         movie = movie, 
         year=datetime.now().year
     )
@@ -119,13 +117,17 @@ def recommend():
         fav_directors = get_user_favourite_directors(user_id, coll_fb)
         fav_movies = get_saved_movie_ids(user_id, coll_fb)
 
-        rec_movies = recommend_total_criteria(coll_tmdb, fav_movies, fav_genres, fav_actors, fav_directors)
+        rec_movies, rec_movies_new_releases, rec_movies_fav_genre, rec_movies_fav_crew = recommend_total_criteria(coll_tmdb, fav_movies, fav_genres, fav_actors, fav_directors)
     
     return render_template(
         'recommend.html',
         title='Recommendation Page',
         profile_picture = get_user_profile_picture(facebook, session),
+        fav_genre = fav_genres[0][0],
         rec_movies = rec_movies,
+        rec_movies_new_releases = rec_movies_new_releases,
+        rec_movies_fav_genre = rec_movies_fav_genre,
+        rec_movies_fav_crew = rec_movies_fav_crew,
         year=datetime.now().year,
     )
 

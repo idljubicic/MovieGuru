@@ -32,10 +32,26 @@
 <div style="margin-top: 40%; display: block">
     <div id="owl-demo">
         {% for movie in movies %}
-        <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+        <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
         {% endfor %}
     </div>
 </div>
+
+<style>
+    #owl-demo .item {
+        margin: 3px;
+    }
+
+        #owl-demo .item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+    .movie {
+        cursor: pointer;
+    }
+</style>
 
 {% endblock %}
 

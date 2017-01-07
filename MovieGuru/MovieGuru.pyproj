@@ -58,9 +58,28 @@
     <Content Include="MovieGuru\static\content\card.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="MovieGuru\static\content\league-gothic.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="MovieGuru\static\content\owl.carousel.css" />
     <Content Include="MovieGuru\static\content\owl.theme.css" />
     <Content Include="MovieGuru\static\content\owl.transitions.css" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-italic-webfont.eot" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-italic-webfont.svg" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-italic-webfont.ttf" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-italic-webfont.woff" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-regular-webfont.eot" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-regular-webfont.svg" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-regular-webfont.ttf" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-condensed-regular-webfont.woff" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-italic-webfont.eot" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-italic-webfont.svg" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-italic-webfont.ttf" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-italic-webfont.woff" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-regular-webfont.eot" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-regular-webfont.svg" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-regular-webfont.ttf" />
+    <Content Include="MovieGuru\static\fonts\leaguegothic-regular-webfont.woff" />
     <Content Include="MovieGuru\static\scripts\detail-view.js">
       <SubType>Code</SubType>
     </Content>

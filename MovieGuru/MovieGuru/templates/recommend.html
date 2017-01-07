@@ -3,26 +3,89 @@
 {% block content %}
 
 <br /><br /><br />
+<div class="recommend_text"><p>Recommended movies for you based on total criteria:<br /></p></div>
 <div id="owl-demo">
     {% for movie in rec_movies %}
-    <div class="item"><img onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+    <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
     {% endfor %}
 </div>
-
+<br /><br />
+<div class="recommend_text"><p>Newly released movies recommended for you:<br /></p></div>
+<div id="owl-demo2">
+    {% for movie in rec_movies_new_releases %}
+    <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+    {% endfor %}
+</div>
+<br /><br />
+<div class="recommend_text"><p>Recommended movies for you based on your favourite genre ({{ fav_genre }}):<br /></p></div>
+<div id="owl-demo3">
+    {% for movie in rec_movies_fav_genre %}
+    <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+    {% endfor %}
+</div>
+<br /><br />
+<div class="recommend_text"><p>Recommended movies for you based on your favourite actors and director:<br /></p></div>
+<div id="owl-demo4">
+    {% for movie in rec_movies_fav_crew %}
+    <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
+    {% endfor %}
+</div>
+<br /><br />
 <div style="text-align: center">
     <img border="0" alt="MovieGuru" align="middle" src="/static/pictures/movie-guru2.png" width="250" height="250">
 </div>
 
 <style>
-    #owl-demo .item {
-        margin: 3px;
-    }
+#owl-demo .item {
+    margin: 3px;
+}
 
-        #owl-demo .item img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo2 .item {
+    margin: 3px;
+}
+
+#owl-demo2 .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo3 .item {
+    margin: 3px;
+}
+
+#owl-demo3 .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#owl-demo4 .item {
+    margin: 3px;
+}
+
+#owl-demo4 .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.movie { 
+    cursor: pointer; 
+}
+
+.recommend_text {
+    font-family: "League Gothic";
+    font-size: xx-large;
+    color: #B9090B;
+}
 </style>
 
 
