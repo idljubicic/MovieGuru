@@ -47,6 +47,8 @@
     <Compile Include="MovieGuru\views.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Metadata\" />
+    <Folder Include="Metadata\deploymentTemplates\" />
     <Folder Include="MovieGuru\" />
     <Folder Include="MovieGuru\static\" />
     <Folder Include="MovieGuru\static\content\" />
@@ -55,6 +57,8 @@
     <Folder Include="MovieGuru\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="apiapp.json" />
+    <Content Include="Metadata\deploymentTemplates\apiappconfig.azureresource.json" />
     <Content Include="MovieGuru\static\content\card.css">
       <SubType>Code</SubType>
     </Content>
