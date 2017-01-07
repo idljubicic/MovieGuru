@@ -58,11 +58,16 @@ def save_user_liked_movies(user_id, movies, coll_tmdb, coll_fb_data):
     coll_fb_data.insert_one({ "user_id" : user_id, "liked_movies" : liked_movies, "genres" : genres, "actors" : actors, "directors": directors })
     return
 
-# return user liked movie data from db
-def get_saved_movie_data(user_id, coll_fb_data):
+# returns user liked movie ids from db
+def get_saved_movie_ids(user_id, coll_fb_data):
     return coll_fb_data.find_one({ "user_id" : user_id })["liked_movies"]
 
-# return user favourite genres from db
+# returns user liked movies from db
+def get_saved_movie_data(user_id, coll_fb_data, coll_tmdb):
+    return [get_movie_by_imdb_id(coll_tmdb, imdb_id) for imdb_id in get_saved_movie_ids(user_id, coll_fb_data)]
+    
+
+# returns user favourite genres from db
 def get_user_favourite_genres(user_id, coll_fb_data):
     genres_d = coll_fb_data.find_one({ "user_id" : user_id })["genres"]
     genres_l = list()
@@ -70,7 +75,7 @@ def get_user_favourite_genres(user_id, coll_fb_data):
        genres_l.append((k,v))
     return genres_l[:5] # return n favourite genres
 
-# return user favourite actors from db
+# returns user favourite actors from db
 def get_user_favourite_actors(user_id, coll_fb_data):
     actors_d = coll_fb_data.find_one({ "user_id" : user_id })["actors"]
     actors_l = list()
@@ -78,7 +83,7 @@ def get_user_favourite_actors(user_id, coll_fb_data):
         actors_l.append((k,v))
     return actors_l[:20] # return n favourite actors
 
-# return user favourite directors from db
+# returns user favourite directors from db
 def get_user_favourite_directors(user_id, coll_fb_data):
     directors_d = coll_fb_data.find_one({ "user_id" : user_id })["directors"]
     directors_l = list()

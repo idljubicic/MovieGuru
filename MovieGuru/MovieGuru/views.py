@@ -92,7 +92,7 @@ def get_movie(imdb_id):
     """Renders the specific movie detail view."""
     client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
     db = client.get_database('drumre_projekt')
-    coll = db.get_collection('tmdb')
+    coll = db.get_collection('dontTouch')
         
     movie = get_movie_by_imdb_id(coll, imdb_id)
     poster_path = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + str(movie['tmdb_poster_path'])
@@ -117,7 +117,7 @@ def recommend():
         fav_genres = get_user_favourite_genres(user_id, coll_fb)
         fav_actors = get_user_favourite_actors(user_id, coll_fb)
         fav_directors = get_user_favourite_directors(user_id, coll_fb)
-        fav_movies = get_saved_movie_data(user_id, coll_fb)
+        fav_movies = get_saved_movie_ids(user_id, coll_fb)
 
         rec_movies = recommend_total_criteria(coll_tmdb, fav_movies, fav_genres, fav_actors, fav_directors)
     
@@ -138,9 +138,10 @@ def profile():
 
         client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
         db = client.get_database('drumre_projekt')
-        coll = db.get_collection('fb_data')
-        movies = get_saved_movie_data(user_id, coll)
-        genres = get_user_favourite_genres(user_id, coll)
+        coll_fb = db.get_collection('fb_data')
+        coll_tmdb = db.get_collection('dontTouch')
+        movies = get_saved_movie_data(user_id, coll_fb, coll_tmdb)
+        genres = get_user_favourite_genres(user_id, coll_fb)
 
         genres_json = [{ 'name' : genre[0], 'y' : genre[1]} for genre in genres]
         with open(os.path.dirname(os.path.realpath(__file__)) + '/templates/genres.json', 'w') as outfile:
