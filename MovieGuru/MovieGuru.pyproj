@@ -39,6 +39,9 @@
     <Compile Include="MovieGuru\fbutils.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MovieGuru\recommender.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="MovieGuru\__init__.py" />
     <Compile Include="MovieGuru\views.py" />
@@ -71,6 +74,9 @@
     </Content>
     <Content Include="MovieGuru\templates\detail.html" />
     <Content Include="MovieGuru\templates\profile.html" />
+    <Content Include="MovieGuru\templates\recommend.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="requirements.txt" />
     <Content Include="MovieGuru\static\content\bootstrap.css" />
     <Content Include="MovieGuru\static\content\bootstrap.min.css" />

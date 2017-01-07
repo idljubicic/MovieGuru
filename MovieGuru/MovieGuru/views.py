@@ -9,6 +9,7 @@ from flask_oauth import OAuth
 from pymongo import MongoClient
 from fbutils import *
 from dbutils import *
+from recommender import *
 from operator import itemgetter
 import json
 import os
@@ -69,8 +70,7 @@ def home():
     """Renders the home page."""
     client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
     db = client.get_database('drumre_projekt')
-    coll = db.get_collection('tmdb')
-    
+    coll = db.get_collection('dontTouch')
     # find trending movies
     trending_movies = find_trending_movies(coll) 
    
@@ -78,7 +78,7 @@ def home():
     if session.get('logged_in') == True:
         user_id = get_user_id(facebook)
         movies = get_user_movie_data(session['facebook_token'][0])           
-        save_user_liked_movies(user_id, movies, db.get_collection('tmdb'), db.get_collection('fb_data')) # save liked movie data for each new user
+        save_user_liked_movies(user_id, movies, db.get_collection('dontTouch'), db.get_collection('fb_data')) # save liked movie data for each new user
         
     return render_template(
         'index.html',
@@ -108,11 +108,24 @@ def get_movie(imdb_id):
 @app.route('/recommend')
 def recommend():
     """Redners the movie recommendations for active user."""
+    if session.get('logged_in') == True:
+        user_id = get_user_id(facebook)       
+        client = MongoClient("mongodb://drumre_projekt:drumre123@ds119508.mlab.com:19508/drumre_projekt")
+        db = client.get_database('drumre_projekt')
+        coll_fb = db.get_collection('fb_data')
+        coll_tmdb = db.get_collection('dontTouch')
+        fav_genres = get_user_favourite_genres(user_id, coll_fb)
+        fav_actors = get_user_favourite_actors(user_id, coll_fb)
+        fav_directors = get_user_favourite_directors(user_id, coll_fb)
+        fav_movies = get_saved_movie_data(user_id, coll_fb)
+
+        rec_movies = recommend_total_criteria(coll_tmdb, fav_movies, fav_genres, fav_actors, fav_directors)
     
     return render_template(
-        'index.html',
+        'recommend.html',
         title='Recommendation Page',
         profile_picture = get_user_profile_picture(facebook, session),
+        rec_movies = rec_movies,
         year=datetime.now().year,
     )
 
