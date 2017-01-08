@@ -4,22 +4,22 @@
 
 <br />
 <div style="float:left;width: 35%; height: 100%; display: inline-block">
-    <iframe style="width:100%;height:300px"src="{{ "https://www.youtube.com/embed/" + movie['videos'][0]['key'] }}">
+    <iframe style="width:110%;height:300px"src="{{ "https://www.youtube.com/embed/" + movie['videos'][0]['key'] }}">
     </iframe>
 </div>
 
 <div style="float:right;width: 60%; height: 100%; display: inline-block">
-    <p class="recommend_text">{{ movie['title']}}<br /></p>
+    <p class="recommend_text" style="font-size:xx-large">{{ movie['title']}}<br /></p>
     
     {{ release_year }}  | {{ movie['runtime'] }}  min | {{ genres }} | {{ movie['release_date'] }} | {{ movie['original_language'] }}
     <br />
     <br />
-    <img src="../static/pictures/imdb-logo.png"  style="width: 5%; height: 4%; margin-right: 10px;" >  <span class="movie_details_scores"> {{ movie['imdbRating'] }}/10.0 </span>
-    <img src="../static/pictures/metacritic-logo.png" style="width:10.5%; height: 3.5%; margin-right: 10px; margin-right: 10px;" /> <span class="movie_details_scores"> {{ movie['metascore'] }}/100 </span>
-    <img src="../static/pictures/rotten-tomatoes-logo.png" style="width:5%; height: 5%; margin-right: 10px; margin-right: 10px;" /><span class="movie_details_scores"> {{ movie['tomatoMeter'] }}/100 </span>
-    <img src="../static/pictures/tmdb-logo.png" style="width: 11.5%; height: 5%; margin-right: 10px;  margin-right: 10px;" /><span class="movie_details_scores"> {{ movie['tmdb_vote_average'] }}/10.0 </span>
+    <img src="../static/pictures/imdb-logo.png"  style="width: 6%; height: 4%; margin-right: 10px; margin-bottom: 7px;" >  <span class="movie_details_scores" style="margin-right: 10px;"> {{  movie['imdbRating']  }}/10.0 </span>
+    <img src="../static/pictures/metacritic-logo.png" style="width:12%; height: 3.5%; margin-right: 10px; margin-bottom: 7px;" /> <span class="movie_details_scores" style="margin-right: 10px;"> {{  movie['metascore']  }}/100 </span>
+    <img src="../static/pictures/rotten-tomatoes-logo.png" style="width:6%; height: 6%; margin-right: 10px; margin-bottom: 7px;" /><span class="movie_details_scores" style="margin-right: 10px;"> {{  movie['tomatoMeter']  }}/100 </span>
+    <img src="../static/pictures/tmdb-logo.png" style="width: 16%; height: 5%; margin-right: 10px; margin-bottom: 7px;" /><span class="movie_details_scores" style="margin-right: 10px;"> {{  movie['tmdb_vote_average']  }}/10.0 </span>
     <hr /> 
-    <span style="font-size:large">
+    <span class="detail_body" style="font-size:large">
         {{ movie['overview'] }}
         <br />
         <br />
@@ -30,7 +30,7 @@
         <br />
         <b>Actors:</b>
         {% for actor in movie['cast'] %}
-        {{ actor['name'] }}
+        {{ actor['name'] }},
         {% endfor %}
         <br />
     </span>
@@ -49,11 +49,17 @@
 
 .movie_details_scores {
     font-family: "League Gothic";
-    font-weight: bold;
     font-size: x-large;
     color: #91c0e1;
     text-align: center;
 }
+
+.detail_body{
+
+    font-size:large;
+    text-shadow: #030507 3px 3px 0;
+}
+
 </style>
 
 {% endblock %}
