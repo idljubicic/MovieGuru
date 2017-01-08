@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<br /><br /><br />
+<br />
 <div class="recommend_text"><p>Recommended movies for you based on total criteria:<br /></p></div>
 <div id="owl-demo">
     {% for movie in rec_movies %}
@@ -30,9 +30,9 @@
     <div class="item"><img class="movie" onclick="detailView(this.id)" id="{{ movie['imdb_id'] }}" src="{{ movie['tmdb_poster_path'] }}" title="{{ movie['title'] }}"></div>
     {% endfor %}
 </div>
-<br /><br />
+<br />
 <div style="text-align: center">
-    <img border="0" alt="MovieGuru" align="middle" src="/static/pictures/movie-guru2.png" width="250" height="250">
+    <img border="0" alt="MovieGuru" align="middle" src="/static/pictures/movie-guru2.png" width="200" height="200">
 </div>
 
 <style>
@@ -84,7 +84,7 @@
 .recommend_text {
     font-family: "League Gothic";
     font-size: xx-large;
-    color: #B9090B;
+    color: #078381;
 }
 </style>
 

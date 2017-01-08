@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand"><img border="0" alt="MovieGuru" src="/static/pictures/movie-guru-link.png" width="200" height="50"></a>
+                <a href="/" class="navbar-brand"><img border="0" alt="MovieGuru" src="/static/pictures/movie-guru-link.png" width="160" height="40"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,11 +37,11 @@
                 </ul>
                 <ul class="nav navbar-nav" style="float:right">
                         {% if not session.logged_in %}
-                        <li><a href="{{ url_for('facebook_login') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-login-blue.png" width="200" height="50">
+                        <li><a href="{{ url_for('facebook_login') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-login-blue.png" width="160" height="40">
                             </a></li>
                         {% else %}
-                        <li><a href="{{ url_for('profile') }}"><img border="0" alt="Facebook" src="{{ profile_picture }}" width="50" height="50"></a></li>
-                        <li><a href="{{ url_for('logout') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-logout-blue.png" width="200" height="50">
+                        <li><a href="{{ url_for('profile') }}"><img border="0" alt="Facebook" src="{{ profile_picture }}" width="40" height="40"></a></li>
+                        <li><a href="{{ url_for('logout') }}"><img border="0" alt="Facebook" src="/static/pictures/facebook-logout-blue.png" width="160" height="40">
                             </a></li>
                         {% endif %}
                 </ul>
@@ -56,7 +56,7 @@
         <hr />
         <footer>
             <br />
-
+            <br />
             <p>&copy; {{ year }} - RubyHoraStudios</p>
         </footer>
     </div>

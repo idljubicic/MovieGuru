@@ -2,8 +2,9 @@
     padding-top: 70px;
     padding-bottom: 20px;
     background-image: url("../pictures/background3_resize.png");
-    background-position: center top;
+    background-position: center bottom;
     background-color: #030507;
+    background-repeat: repeat-x;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -47,8 +48,14 @@ input[type="checkbox"].input-validation-error {
 
 .klasa {
 
-    font-size: 140%;
-    margin-top: 15px;
+    font-size: 130%;
+    margin-top: 10px;
+}
+
+.details{
+    color: #d9d9d9;
+    background-color: #030507;
+    font-size: 180%;
 }
 
 #owl-demo .item {

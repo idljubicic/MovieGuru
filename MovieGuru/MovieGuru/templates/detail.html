@@ -7,8 +7,9 @@
     <img src="{{ movie['tmdb_poster_path'] }}" />
 </div>
 
-<div stlye="float:right">
+<div class="details">
     <ul>
+        <br />
         <li>Title: {{ movie['title']}}</li>
         <li>Original language: {{ movie['original_language'] }}</li>
         <li>Tagline: {{ movie['tagline'] }}</li>
@@ -16,6 +17,7 @@
         <li>Runtime: {{ movie['runtime'] }} </li>
         <li>Revenue: {{ movie['revenue'] }} </li>
         <li>Overview: {{ movie['overview'] }}</li>
+        <br />
     </ul>
 </div>
 
