@@ -3,23 +3,58 @@
 {% block content %}
 
 <br />
-<div style="float:left;margin-right:20px">
-    <img src="{{ movie['tmdb_poster_path'] }}" />
+<div style="float:left;width: 35%; height: 100%; display: inline-block">
+    <iframe style="width:100%;height:300px"src="{{ "https://www.youtube.com/embed/" + movie['videos'][0]['key'] }}">
+    </iframe>
 </div>
 
-<div class="details">
-    <ul>
+<div style="float:right;width: 60%; height: 100%; display: inline-block">
+    <p class="recommend_text">{{ movie['title']}}<br /></p>
+    
+    {{ release_year }}  | {{ movie['runtime'] }}  min | {{ genres }} | {{ movie['release_date'] }} | {{ movie['original_language'] }}
+    <br />
+    <br />
+    <img src="../static/pictures/imdb-logo.png"  style="width: 5%; height: 4%; margin-right: 10px;" >  <span class="movie_details_scores"> {{ movie['imdbRating'] }}/10.0 </span>
+    <img src="../static/pictures/metacritic-logo.png" style="width:10.5%; height: 3.5%; margin-right: 10px; margin-right: 10px;" /> <span class="movie_details_scores"> {{ movie['metascore'] }}/100 </span>
+    <img src="../static/pictures/rotten-tomatoes-logo.png" style="width:5%; height: 5%; margin-right: 10px; margin-right: 10px;" /><span class="movie_details_scores"> {{ movie['tomatoMeter'] }}/100 </span>
+    <img src="../static/pictures/tmdb-logo.png" style="width: 11.5%; height: 5%; margin-right: 10px;  margin-right: 10px;" /><span class="movie_details_scores"> {{ movie['tmdb_vote_average'] }}/10.0 </span>
+    <hr /> 
+    <span style="font-size:large">
+        {{ movie['overview'] }}
         <br />
-        <li>Title: {{ movie['title']}}</li>
-        <li>Original language: {{ movie['original_language'] }}</li>
-        <li>Tagline: {{ movie['tagline'] }}</li>
-        <li>Tmdb vote average: {{ movie['tmdb_vote_average'] }} </li>
-        <li>Runtime: {{ movie['runtime'] }} </li>
-        <li>Revenue: {{ movie['revenue'] }} </li>
-        <li>Overview: {{ movie['overview'] }}</li>
         <br />
-    </ul>
+        <b>Director:</b>
+        {% for director in movie['crew'] %}
+        {{ director['name'] }}
+        {% endfor %}
+        <br />
+        <b>Actors:</b>
+        {% for actor in movie['cast'] %}
+        {{ actor['name'] }}
+        {% endfor %}
+        <br />
+    </span>
 </div>
+
+<style>
+#footer {
+    display: inline-block;
+    width: 100%;
+}
+
+#layout_hr {
+    display: inline-block;
+    width: 100%;
+}
+
+.movie_details_scores {
+    font-family: "League Gothic";
+    font-weight: bold;
+    font-size: x-large;
+    color: #91c0e1;
+    text-align: center;
+}
+</style>
 
 {% endblock %}
 

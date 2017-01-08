@@ -52,12 +52,6 @@ input[type="checkbox"].input-validation-error {
     margin-top: 10px;
 }
 
-.details{
-    color: #d9d9d9;
-    background-color: #030507;
-    font-size: 180%;
-}
-
 #owl-demo .item {
     margin: 3px;
 }
@@ -66,4 +60,10 @@ input[type="checkbox"].input-validation-error {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.recommend_text {
+    font-family: "League Gothic";
+    font-size: xx-large;
+    color: #91c0e1;
 }

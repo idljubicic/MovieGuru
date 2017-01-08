@@ -95,11 +95,20 @@ def get_movie(imdb_id):
     coll = db.get_collection('dontTouch')
         
     movie = get_movie_by_imdb_id(coll, imdb_id)
+    release_year = movie['release_date'].split('-')[0]
+
+    genres = ""
+    for genre in movie['genres']:   
+        genres += str(genre)
+        if genre != movie['genres'][-1]:
+            genres += ", "
 
     return render_template(
         'detail.html', 
         profile_picture = get_user_profile_picture(facebook, session),
         movie = movie, 
+        release_year = release_year,
+        genres = genres,
         year=datetime.now().year
     )
 
